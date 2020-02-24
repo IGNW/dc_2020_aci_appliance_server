@@ -1,0 +1,32 @@
+name: Production
+
+on: 
+  push:
+    branches:
+      - master
+
+jobs:
+
+  Build:
+    runs-on: self-hosted
+    steps:
+    - uses: actions/checkout@v1
+
+    - name: Build the docker image
+      run: docker build . --file Dockerfile --tag ignw/dc_2020_aci_appliance_server:latest
+
+  Test:
+    runs-on: self-hosted
+    steps:
+    - uses: actions/checkout@v1
+
+    - name: Validate the tool configuration and files
+      run: docker run --rw ignw/dc_2020_aci_appliance_server:latest
+
+  Plan:
+    runs-on: self-hosted
+    steps:
+    - uses: actions/checkout@v1
+
+    - name: Run the playbooks
+      run: docker run --rw ignw/dc_2020_aci_appliance_server:latest
