@@ -15,18 +15,18 @@ jobs:
     - name: Build the docker image
       run: docker build . --file Dockerfile --tag ignw/dc_2020_aci_appliance_server:latest
 
-  Test:
+  DryRun:
     runs-on: self-hosted
     steps:
     - uses: actions/checkout@v1
 
-    - name: Validate the tool configuration and files
-      run: docker run --rw ignw/dc_2020_aci_appliance_server:latest
+    - name: Test the execution of the Playbook but don't make any changes
+      run: docker run --rm ignw/dc_2020_aci_appliance_server:latest ansible-playbook -i inventory aci_appliance_server.yml -v --check --diff
 
-  Plan:
+  Apply:
     runs-on: self-hosted
     steps:
     - uses: actions/checkout@v1
 
-    - name: Run the playbooks
-      run: docker run --rw ignw/dc_2020_aci_appliance_server:latest
+    - name: Run the playbook
+      docker run --rm ignw/dc_2020_aci_appliance_server:latest ansible-playbook -i inventory aci_appliance_server.yml -v
