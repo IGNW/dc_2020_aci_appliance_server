@@ -1,0 +1,48 @@
+name:
+    type: text
+    regex: ^[a-zA-Z_0-9]*$
+description:
+    type: text
+
+# leaf_a and leaf_b can not be the same
+# If the interface is different, please show a warning
+leaf_a:
+    type: dropdown
+    options:
+        - Leaf_101
+        - Leaf_201
+interface_a:
+    type: dropdown
+    options:
+        - 1
+        - 2
+        - 3
+        - # about 20 options in here
+        - 20
+leaf_b:
+    type: dropdown
+    options:
+        - Leaf_101
+        - Leaf_201
+interface_a:
+    type: dropdown
+    options:
+        - 1
+        - 2
+        - 3
+        - # about 20 options in here
+        - 20
+attached_epg:
+    type: dropdown
+    options:
+        - # These should be names of application profiles and epgs
+        - heliumV_servers
+        - cybercorp_database
+        - Icestone_management
+        - Icestone_servers
+github_username:
+    type: text
+github_password:
+    type: password 
+github_email_address:
+    type: text
