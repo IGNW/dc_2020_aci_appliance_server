@@ -1,0 +1,9 @@
+---
+attached_epg: heliumV_servers
+description: testing the appliance server code
+leaf_a: Leaf_101
+leaf_a_interface_a: '15'
+leaf_b: Leaf_201
+leaf_b_interface_a: '14'
+name: test_dock_appliance
+...
