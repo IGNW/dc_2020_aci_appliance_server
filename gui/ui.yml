@@ -11,31 +11,27 @@ leaf_a:
     options:
         - Leaf_101
         - Leaf_201
-interface_a:
+leaf_a_interface_a:
     type: dropdown
     options:
-        - 1
-        - 2
-        - 3
-        - # about 20 options in here
-        - 20
+        {% for x in range(20) %}
+        - {{ x + 1 }}
+        {% endfor %}
 leaf_b:
     type: dropdown
     options:
         - Leaf_101
         - Leaf_201
-interface_a:
+leaf_b_interface_a:
     type: dropdown
     options:
-        - 1
-        - 2
-        - 3
-        - # about 20 options in here
-        - 20
+        {% for x in range(20) %}
+        - {{ x + 1 }}
+        {% endfor %}
 attached_epg:
     type: dropdown
     options:
-        - # These should be names of application profiles and epgs
+        # These should be names of application profiles and epgs
         - heliumV_servers
         - cybercorp_database
         - Icestone_management
