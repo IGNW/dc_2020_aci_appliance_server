@@ -37,7 +37,7 @@ def main(**kwargs):
 
     name = kwargs['name']
     new_branch = f"{kwargs['name']}_{str_now}"
-    file_name = f'ansible_vars_{name}'
+    file_name = f'ansible_vars_{name}.yml'
 
     output_data = {k:v for k,v in kwargs.items() if "github" not in k}
 
