@@ -1,0 +1,9 @@
+---
+attached_epg: Icestone_servers
+description: test video appliance server
+leaf_a: Leaf_101
+leaf_a_interface_a: '12'
+leaf_b: Leaf_201
+leaf_b_interface_a: '12'
+name: test_video_appliance
+...
