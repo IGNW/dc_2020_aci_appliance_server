@@ -20,9 +20,9 @@ jobs:
     steps:
     - uses: actions/checkout@v1
 
-  - name: Setup Environment Var for password
-    env: # Or as an environment variable
-      sandbox_password: ${{ secrets.sandbox_password }}
+    - name: Setup Environment Var for password
+      env: # Or as an environment variable
+        sandbox_password: ${{ secrets.sandbox_password }}
 
     - name: Test the execution of the Playbook but don't make any changes
       run: docker run --rm --env sanbox_password={{ sanbox_password }} ignw/dc_2020_aci_appliance_server:latest ansible-playbook -i inventory aci_appliance_server.yml -v --check --diff
