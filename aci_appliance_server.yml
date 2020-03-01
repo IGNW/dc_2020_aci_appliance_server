@@ -13,7 +13,7 @@
       aci_tenant:
         host: "{{ inventory_hostname }}"
         username: "{{ username }}"
-        password: "{{ lookup('env','sandbox_password') }}"
+        password: "{{ password }}"
         validate_certs: no
         state: query
 
@@ -21,7 +21,7 @@
       aci_epg:
         host: "{{ inventory_hostname }}"
         username: "{{ username }}"
-        password: "{{ lookup('env','sandbox_password') }}"
+        password: "{{ password }}"
         validate_certs: no
         state: query
 
@@ -29,7 +29,7 @@
       aci_ap:
         host: "{{ inventory_hostname }}"
         username: "{{ username }}"
-        password: "{{ lookup('env','sandbox_password') }}"
+        password: "{{ password }}"
         validate_certs: no
         state: query
 
@@ -37,6 +37,6 @@
       aci_static_binding_to_epg:
         host: "{{ inventory_hostname }}"
         username: "{{ username }}"
-        password: "{{ lookup('env','sandbox_password') }}"
+        password: "{{ password }}"
         validate_certs: no
         state: query
