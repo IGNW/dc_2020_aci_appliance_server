@@ -7,6 +7,8 @@ RUN apt-get -y upgrade
 ####################
 RUN apt-get -y install git curl
 RUN apt-get -y install python3 python3-dev python3-pip
+RUN echo 'alias python="/usr/bin/python3"' >> /root/.bashrc && \
+    echo 'alias pip="/usr/bin/pip3"' >> /root/.bashrc
 
 # Ansible
 #########
