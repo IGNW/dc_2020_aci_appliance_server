@@ -6,7 +6,7 @@
     credentials:
         host: "{{ inventory_hostname }}"
         username: "{{ username }}"
-        password: "{{ lookup('env','SANDBOX_PASSWORD') }}"
+        password: "{{ lookup('env','sandbox_password') }}"
 
   tasks:
     - name: GATHER TENANTS
