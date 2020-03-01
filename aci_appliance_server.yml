@@ -1,21 +1,34 @@
-- name : Testing
+- name : Apply_Appliance
   hosts: apic
   connection: local
   gather_facts: no
+  vars:
+    credentials:
+        host: "{{ inventory_hostname }}"
+        username: "{{ username }}"
+        password: "{{ lookup('env','SANDBOX_PASSWORD') }}"
 
   tasks:
     - name: GATHER TENANTS
       aci_tenant:
-        hostname: "{{ inventory_hostname }}"
-        username: "{{ username }}"
-        password: "{{ password }}"
+        provider: "{{ credentials }}"
         validate_certs: no
         state: query
 
     - name: GATHER EPGs
       aci_epg:
-        hostname: "{{ inventory_hostname }}"
-        username: "{{ username }}"
-        password: "{{ password }}"
+        provider: "{{ credentials }}"
+        validate_certs: no
+        state: query
+
+    - name: CREATE AN AP
+      aci_ap:
+        provider: "{{ credentials }}"
+        validate_certs: no
+        state: query
+
+    - name: MAP SERVER TO EPG
+      aci_static_binding_to_epg:
+        provider: "{{ credentials }}"
         validate_certs: no
         state: query
