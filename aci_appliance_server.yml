@@ -11,24 +11,32 @@
   tasks:
     - name: GATHER TENANTS
       aci_tenant:
-        provider: "{{ credentials }}"
+        host: "{{ inventory_hostname }}"
+        username: "{{ username }}"
+        password: "{{ lookup('env','sandbox_password') }}"
         validate_certs: no
         state: query
 
     - name: GATHER EPGs
       aci_epg:
-        provider: "{{ credentials }}"
+        host: "{{ inventory_hostname }}"
+        username: "{{ username }}"
+        password: "{{ lookup('env','sandbox_password') }}"
         validate_certs: no
         state: query
 
     - name: CREATE AN AP
       aci_ap:
-        provider: "{{ credentials }}"
+        host: "{{ inventory_hostname }}"
+        username: "{{ username }}"
+        password: "{{ lookup('env','sandbox_password') }}"
         validate_certs: no
         state: query
 
     - name: MAP SERVER TO EPG
       aci_static_binding_to_epg:
-        provider: "{{ credentials }}"
+        host: "{{ inventory_hostname }}"
+        username: "{{ username }}"
+        password: "{{ lookup('env','sandbox_password') }}"
         validate_certs: no
         state: query
