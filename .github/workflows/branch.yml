@@ -24,4 +24,4 @@ jobs:
       env: # Get our password ready for use
         sandbox_password: ${{ secrets.sandbox_password }}
 
-      run: docker run --rm --env sanbox_password={{ sanbox_password }} ignw/dc_2020_aci_appliance_server:latest ansible-playbook -i inventory aci_appliance_server.yml -v --check --diff
+      run: docker run --rm --env sandbox_password={{ sandbox_password }} ignw/dc_2020_aci_appliance_server:latest ansible-playbook -i inventory aci_appliance_server.yml -v --check --diff
